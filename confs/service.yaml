@@ -7,5 +7,5 @@ spec:
   selector:
     app: iot-playground
   ports:
-    - port: 8888
-      targetPort: 8888
+    - port: 1337
+      targetPort: 1337

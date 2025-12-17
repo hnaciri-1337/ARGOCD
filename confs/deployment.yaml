@@ -17,4 +17,4 @@ spec:
         - name: playground
           image: hnaciri/iot:v1
           ports:
-            - containerPort: 8888
+            - containerPort: 1337
