@@ -8,7 +8,6 @@ spec:
   source:
     repoURL: https://github.com/hnaciri-1337/ARGOCD.git
     targetRevision: HEAD
-    path: confs
   destination:
     server: https://kubernetes.default.svc
     namespace: dev
