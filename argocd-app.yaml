@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: iot-playground
+  namespace: argocd
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: playground=hnaciri/iot
+    argocd-image-updater.argoproj.io/playground.update-strategy: latest
+    argocd-image-updater.argoproj.io/write-back-method: git
+    argocd-image-updater.argoproj.io/git-branch: main
+    argocd-image-updater.argoproj.io/git-credentials: argocd-image-updater-secret
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/hnaciri-1337/ARGOCD.git
+    targetRevision: main
+    path: .
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: dev
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
